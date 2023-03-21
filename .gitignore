@@ -1,0 +1,25 @@
+# Build directory
+/build/
+/cmake-build-*/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Test results
+CTestTestfile.cmake
+Testing/
+
+# Compiled binaries
+*.so
+
+# Miscellaneous
+*.swp
+*.swo
+*~
+.DS_Store
+
+# IDEs
+.idea
