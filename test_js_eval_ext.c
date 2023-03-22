@@ -93,7 +93,16 @@ int main() {
     rc = sqlite3_enable_load_extension(db, 1);
     assert(rc == SQLITE_OK);
 
+#ifdef __APPLE__
+    rc = sqlite3_load_extension(db, "./libjs_eval_ext.dylib", "sqlite3_js_eval_init", 0);
+#elif __linux__
     rc = sqlite3_load_extension(db, "./libjs_eval_ext.so", "sqlite3_js_eval_init", 0);
+#else
+#error Unsupported platform
+#endif
+
+    printf("Loaded extension with rc=%d", rc);
+
     assert(rc == SQLITE_OK);
 
     test_eval_js_integer(db);

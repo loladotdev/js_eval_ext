@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # SQLite3
-add_library(sqlite3 STATIC sqlite3/sqlite3.c)
+add_library(sqlite3 SHARED sqlite3/sqlite3.c)
 target_include_directories(sqlite3 PUBLIC sqlite3)
 target_compile_definitions(sqlite3 PUBLIC SQLITE_ENABLE_COLUMN_METADATA=1)
 
